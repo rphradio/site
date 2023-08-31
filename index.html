@@ -1,107 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>r/Philippines Radio</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-
-  #welcome-message {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-  }
-
-  #tabs {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    padding: 10px 0;
-  }
-
-  .tab {
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-  }
-
-  .tab.active {
-    background-color: #555;
-  }
-
-  #content {
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-
-  .iframe-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    overflow: hidden;
-  }
-
-  .iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Radio Station</title>
 </head>
 <body>
-  <div id="welcome-message">
-    <h1>Welcome to r/Philippines Radio</h1>
-    <p>Enjoy music and contribute by being a DJ</p>
-  </div>
-  <div id="tabs">
-    <div class="tab active" onclick="changeTab(0)">Pinoy Jam</div>
-    <div class="tab" onclick="changeTab(1)">Radio 2</div>
-    <div class="tab" onclick="changeTab(2)">Radio 3</div>
-  </div>
-  <div id="content">
-    <div class="iframe-container">
-        <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 60%; min-height: 150px; border: 1;"></iframe>
-    </div>
-    <div class="iframe-container" style="display: none;">
-      <iframe id="iframe2" src="https://www.example.com/radio2"></iframe>
-    </div>
-    <div class="iframe-container" style="display: none;">
-      <iframe id="iframe3" src="https://www.example.com/radio3"></iframe>
-    </div>
-  </div>
-
-  <script>
-    function changeTab(tabIndex) {
-      const iframes = document.querySelectorAll('.iframe-container');
-      const tabs = document.querySelectorAll('.tab');
-
-      iframes.forEach((iframe, index) => {
-        if (index === tabIndex) {
-          iframe.style.display = 'block';
-        } else {
-          iframe.style.display = 'none';
-        }
-      });
-
-      tabs.forEach((tab, index) => {
-        if (index === tabIndex) {
-          tab.classList.add('active');
-        } else {
-          tab.classList.remove('active');
-        }
-      });
-    }
-  </script>
+    <header>
+        <h1>Welcome to rphradio</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#main">Radio Stations</a></li>
+            <li><a href="#tab1">FAQs</a></li>
+            <li><a href="#tab2">Contribute</a></li>
+            <li><a href="#tab3">Tab 3</a></li>
+        </ul>
+    </nav>
+    <section id="main">
+        <h2>Radio Stations</h2>
+        <div class="radio-player">
+            <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 60%; min-height: 150px; border: 1;">OPM</iframe>
+            <iframe src="your_radio_player_url_2"></iframe>
+            <iframe src="your_radio_player_url_3"></iframe>
+        </div>
+    </section>
+    <section id="tab1">
+        <h2>FAQs</h2>
+        <!-- Add your content for Tab 1 here -->
+    </section>
+    <section id="tab2">
+        <h2>Contribute</h2>
+        <!-- Add your content for Tab 2 here -->
+    </section>
+    <section id="tab3">
+        <h2>Tab 3 Content</h2>
+        <!-- Add your content for Tab 3 here -->
+    </section>
 </body>
 </html>
+
 
