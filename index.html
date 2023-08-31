@@ -1,6 +1,95 @@
-<html>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>r/Philippines Radio</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
 
-   <center><iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe></center><
-  </body>
+  #tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .tab.active {
+    background-color: #555;
+  }
+
+  #content {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .iframe-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+  <div id="tabs">
+    <div class="tab active" onclick="changeTab(0)">OPM.fm</div>
+    <div class="tab" onclick="changeTab(1)">Radio 2</div>
+    <div class="tab" onclick="changeTab(2)">Radio 3</div>
+  </div>
+  <div id="content">
+    <div class="iframe-container">
+      <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe>
+    </div>
+    <div class="iframe-container" style="display: none;">
+      <iframe id="iframe2" src="https://www.example.com/radio2"></iframe>
+    </div>
+    <div class="iframe-container" style="display: none;">
+      <iframe id="iframe3" src="https://www.example.com/radio3"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function changeTab(tabIndex) {
+      const iframes = document.querySelectorAll('.iframe-container');
+      const tabs = document.querySelectorAll('.tab');
+
+      iframes.forEach((iframe, index) => {
+        if (index === tabIndex) {
+          iframe.style.display = 'block';
+        } else {
+          iframe.style.display = 'none';
+        }
+      });
+
+      tabs.forEach((tab, index) => {
+        if (index === tabIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
 </html>
