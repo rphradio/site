@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radio Station</title>
+  <title>r/Philippines Radio</title>
   <style>
     body {
       background-color: #111;
@@ -28,10 +28,23 @@
       display: flex;
       justify-content: space-around;
       margin-top: 20px;
+      border-bottom: 1px solid #666;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab:hover {
+      background-color: #333;
     }
 
     .tab-content {
       display: none;
+      border: 1px solid #666;
+      padding: 20px;
     }
 
     .tab-content.active {
@@ -57,14 +70,14 @@
 <body>
   <div class="container">
     <header class="header">
-      <h1>Welcome to Our Radio Station</h1>
-      <p>Your source for great music and shows.</p>
+      <h1>Welcome to r/Philippines Radio</h1>
+      <p>Your source for great music and shows. listen and contribute </p>
     </header>
 
     <div class="tabs">
-      <div class="tab" onclick="changeTab(0)">Main</div>
-      <div class="tab" onclick="changeTab(1)">Tab 2</div>
-      <div class="tab" onclick="changeTab(2)">Tab 3</div>
+      <div class="tab" onclick="changeTab(0)">Stations</div>
+      <div class="tab" onclick="changeTab(1)">FAQ's</div>
+      <div class="tab" onclick="changeTab(2)">Contribute</div>
       <div class="tab" onclick="changeTab(3)">Tab 4</div>
     </div>
 
@@ -75,11 +88,11 @@
     </div>
 
     <div class="tab-content" id="tab1">
-      <!-- Content for Tab 2 -->
+      <p>put FAQ's here</p>
     </div>
 
     <div class="tab-content" id="tab2">
-      <!-- Content for Tab 3 -->
+      <p>Put Contribute info here</p>
     </div>
 
     <div class="tab-content" id="tab3">
