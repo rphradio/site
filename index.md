@@ -10,7 +10,16 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-![](https://rphradio.net/listen/radio/radio.mp3)
+[Uplo#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=52800,CODECS="mp4a.40.2"
+aac_lofi.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=105600,CODECS="mp4a.40.2"
+aac_midfi.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=211200,CODECS="mp4a.40.2"
+aac_hifi.m3u8
+ading live.m3u8…]()
+
 
 # Header 1
 
