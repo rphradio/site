@@ -12,6 +12,13 @@
     background-color: #f2f2f2;
   }
 
+  #welcome-message {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
   #tabs {
     display: flex;
     justify-content: center;
@@ -52,14 +59,18 @@
 </style>
 </head>
 <body>
+  <div id="welcome-message">
+    <h1>Welcome to r/Philippines Radio</h1>
+    <p>Enjoy music and contribute by being a DJ</p>
+  </div>
   <div id="tabs">
-    <div class="tab active" onclick="changeTab(0)">OPM.fm</div>
+    <div class="tab active" onclick="changeTab(0)">Pinoy Jam</div>
     <div class="tab" onclick="changeTab(1)">Radio 2</div>
     <div class="tab" onclick="changeTab(2)">Radio 3</div>
   </div>
   <div id="content">
     <div class="iframe-container">
-      <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe>
+        <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="1" allowtransparency="true" style="width: 60%; min-height: 150px; border: 1;"></iframe>
     </div>
     <div class="iframe-container" style="display: none;">
       <iframe id="iframe2" src="https://www.example.com/radio2"></iframe>
@@ -93,3 +104,4 @@
   </script>
 </body>
 </html>
+
