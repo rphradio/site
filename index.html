@@ -1,111 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>r/Philippines Radio</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .header {
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    .tabs {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-      border-bottom: 1px solid #666;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .tab:hover {
-      background-color: #333;
-    }
-
-    .tab-content {
-      display: none;
-      border: 1px solid #666;
-      padding: 20px;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    .iframe-container {
-      position: relative;
-      overflow: hidden;
-      padding-top: 56.25%; /* 16:9 aspect ratio for video iframes */
-    }
-
-    .iframe-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>r/Philippines Online Radio</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .tab {
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+  .tab:hover {
+    background-color: #ddd;
+  }
+  .content {
+    margin-top: 20px;
+    display: none;
+  }
+  .content.active {
+    display: block;
+  }
+</style>
 </head>
 <body>
+  <header>
+    <h1>r/Philippines Radio</h1>
+    <p>Your source for amazing content</p>
+  </header>
   <div class="container">
-    <header class="header">
-      <h1>Welcome to r/Philippines Radio</h1>
-      <p>Your source for great music and shows. listen and contribute </p>
-    </header>
-
     <div class="tabs">
-      <div class="tab" onclick="changeTab(0)">Stations</div>
-      <div class="tab" onclick="changeTab(1)">FAQ's</div>
-      <div class="tab" onclick="changeTab(2)">Contribute</div>
-      <div class="tab" onclick="changeTab(3)">Tab 4</div>
+      <div class="tab" onclick="showTab(0)">Stations</div>
+      <div class="tab" onclick="showTab(1)">FAQ's</div>
+      <div class="tab" onclick="showTab(2)">Be a DJ</div>
     </div>
-
-    <div class="tab-content" id="tab0">
-      <div class="iframe-container">
-        <iframe src="https://rphradio.net/public/radio/embed?theme=dark" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe>
-      </div>
+    <div class="content active" id="tab1">
+      <h2>Stations</h2>
+      <p>This is the content of Tab 1.</p>
+      <iframe src="https://rphradio.net/public/radio/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe>
     </div>
-
-    <div class="tab-content" id="tab1">
-      <p>put FAQ's here</p>
+    <div class="content" id="tab2">
+      <h2>Frequently Asked Questions</h2>
+      <p>This is the content of Tab 2.</p>
     </div>
-
-    <div class="tab-content" id="tab2">
-      <p>Put Contribute info here</p>
-    </div>
-
-    <div class="tab-content" id="tab3">
-      <!-- Content for Tab 4 -->
+    <div class="content" id="tab3">
+      <h2>contribute and be a DJ</h2>
+      <p>This is the content of Tab 3.</p>
     </div>
   </div>
 
-  <script>
-    function changeTab(tabIndex) {
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabContents.forEach(content => content.classList.remove('active'));
-      tabContents[tabIndex].classList.add('active');
+<script>
+  function showTab(tabIndex) {
+    const contents = document.querySelectorAll('.content');
+    for (let i = 0; i < contents.length; i++) {
+      contents[i].classList.remove('active');
     }
-  </script>
+    contents[tabIndex].classList.add('active');
+  }
+</script>
 </body>
 </html>
