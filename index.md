@@ -10,7 +10,7 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-[With an audio](https://rphradio.net/public/radio/embed)
+![](https://rphradio.net/listen/radio/radio.mp3)
 
 # Header 1
 
