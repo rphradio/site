@@ -67,28 +67,33 @@
       <hr>
       <h2><center>Radio Stations</center></h2>
       <p><b>Channel 1 - Live Redditor DJ</b></p>
-      <iframe id="audioFrame" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 180px; border: 0;"></iframe>
+      <iframe id="audio-frame" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 180px; border: 0;"></iframe>
       <p><b>Channel 2 - OPM Jam</b></p>
-      <iframe id="audioFrame" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 210px; border: 0;"></iframe>
+      <iframe id="audio-frame" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 210px; border: 0;"></iframe>
       <p><b>Channel 3 - EasyRock</b></p>
       <p><b>Channel 4 - Pop and Foreign</b></p>
 
-
-<script>
-        // Reference to the iframe
-        const iframe = document.getElementById("audioFrame");
-
-        // Function to pause all audio elements within the iframe
-        function pauseAllAudios() {
-            const iframeWindow = iframe.contentWindow;
+  <script>
+        // Function to pause all audio elements within a specific iframe
+        function pauseAllAudiosInIframe(iframeElement) {
+            const iframeWindow = iframeElement.contentWindow;
             if (iframeWindow && iframeWindow.pauseAllAudios) {
                 iframeWindow.pauseAllAudios();
             }
         }
 
-        // Listen for the "play" event on the parent page
-        window.addEventListener("play", function() {
-            pauseAllAudios();
+        // Add event listeners to all iframes with the "audio-frame" class
+        const audioFrames = document.querySelectorAll(".audio-frame");
+        audioFrames.forEach((iframe) => {
+            iframe.addEventListener("load", function () {
+                const iframeWindow = iframe.contentWindow;
+                if (iframeWindow && iframeWindow.initAudioControl) {
+                    iframeWindow.initAudioControl(function () {
+                        // Callback to pause all audios within this iframe
+                        pauseAllAudiosInIframe(iframe);
+                    });
+                }
+            });
         });
     </script>
       
