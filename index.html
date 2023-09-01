@@ -73,33 +73,7 @@
       <p><b>Channel 3 - EasyRock</b></p>
       <p><b>Channel 4 - Pop and Foreign</b></p>
 
-  <script>
-        var currentIframe = null;
 
-        function playIframeAudio(iframeId) {
-            if (currentIframe !== null && currentIframe !== iframeId) {
-                // Pause the currently playing iframe
-                var currentAudio = document.getElementById(currentIframe);
-                currentAudio.contentWindow.postMessage('pause', '*');
-            }
-
-            // Play the selected iframe
-            var selectedIframe = document.getElementById(iframeId);
-            selectedIframe.contentWindow.postMessage('play', '*');
-
-            // Update the current iframe
-            currentIframe = iframeId;
-        }
-
-        // Add event listeners to the iframes
-        document.getElementById('iframe1').addEventListener('load', function () {
-            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
-        });
-        document.getElementById('iframe2').addEventListener('load', function () {
-            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
-        });
-
-    </script>
 
 
       
@@ -134,6 +108,36 @@
     }
     contents[tabIndex].classList.add('active');
   }
+
+
+// on player only
+  
+        var currentIframe = null;
+
+        function playIframeAudio(iframeId) {
+            if (currentIframe !== null && currentIframe !== iframeId) {
+                // Pause the currently playing iframe
+                var currentAudio = document.getElementById(currentIframe);
+                currentAudio.contentWindow.postMessage('pause', '*');
+            }
+
+            // Play the selected iframe
+            var selectedIframe = document.getElementById(iframeId);
+            selectedIframe.contentWindow.postMessage('play', '*');
+
+            // Update the current iframe
+            currentIframe = iframeId;
+        }
+
+        // Add event listeners to the iframes
+        document.getElementById('iframe1').addEventListener('load', function () {
+            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+        });
+        document.getElementById('iframe2').addEventListener('load', function () {
+            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+        });
+
+
 </script>
 
   
