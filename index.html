@@ -67,9 +67,9 @@
       <hr>
       <h2><center>Radio Stations</center></h2>
       <p><b>Channel 1 - Live Redditor DJ</b></p>
-      <iframe id="iframe1" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 180px; border: 0;"></iframe>
+      <iframe id="iframe1" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 80px; border: 0;"></iframe>
       <p><b>Channel 2 - OPM Jam</b></p>
-      <iframe id="iframe2" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 210px; border: 0;"></iframe>
+      <iframe id="iframe2" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 80px; border: 0;"></iframe>
       <p><b>Channel 3 - EasyRock</b></p>
       <p><b>Channel 4 - Pop and Foreign</b></p>
 
@@ -118,7 +118,7 @@
             if (currentIframe !== null && currentIframe !== iframeId) {
                 // Pause the currently playing iframe
                 var currentAudio = document.getElementById(currentIframe);
-                currentAudio.contentWindow.postMessage('pause', '*');
+                currentAudio.contentWindow.postMessage('stop', '*');
             }
 
             // Play the selected iframe
@@ -131,10 +131,10 @@
 
         // Add event listeners to the iframes
         document.getElementById('iframe1').addEventListener('load', function () {
-            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+            this.contentWindow.postMessage('stop', '*'); // Pause the audio when the iframe is loaded
         });
         document.getElementById('iframe2').addEventListener('load', function () {
-            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+            this.contentWindow.postMessage('stop', '*'); // Pause the audio when the iframe is loaded
         });
 
 
