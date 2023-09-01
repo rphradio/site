@@ -67,11 +67,41 @@
       <hr>
       <h2><center>Radio Stations</center></h2>
       <p><b>Channel 1 - Live Redditor DJ</b></p>
-      <iframe id="audio-frame" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 180px; border: 0;"></iframe>
+      <iframe id="iframe1" src="https://rphradio.net/public/live/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 180px; border: 0;"></iframe>
       <p><b>Channel 2 - OPM Jam</b></p>
-      <iframe id="audio-frame" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 210px; border: 0;"></iframe>
+      <iframe id="iframe2" src="https://rphradio.net/public/opm/embed?theme=light" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 210px; border: 0;"></iframe>
       <p><b>Channel 3 - EasyRock</b></p>
       <p><b>Channel 4 - Pop and Foreign</b></p>
+
+  <script>
+        var currentIframe = null;
+
+        function playIframeAudio(iframeId) {
+            if (currentIframe !== null && currentIframe !== iframeId) {
+                // Pause the currently playing iframe
+                var currentAudio = document.getElementById(currentIframe);
+                currentAudio.contentWindow.postMessage('pause', '*');
+            }
+
+            // Play the selected iframe
+            var selectedIframe = document.getElementById(iframeId);
+            selectedIframe.contentWindow.postMessage('play', '*');
+
+            // Update the current iframe
+            currentIframe = iframeId;
+        }
+
+        // Add event listeners to the iframes
+        document.getElementById('iframe1').addEventListener('load', function () {
+            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+        });
+        document.getElementById('iframe2').addEventListener('load', function () {
+            this.contentWindow.postMessage('pause', '*'); // Pause the audio when the iframe is loaded
+        });
+
+    </script>
+
+
       
     </div>
     <div class="content" id="tab2">
