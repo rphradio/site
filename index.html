@@ -36,6 +36,9 @@
   .tab:hover {
     background-color: #ddd;
   }
+  .tab.active {
+    background-color: #ddd;
+  }
   .content {
     margin-top: 20px;
     display: none;
@@ -43,9 +46,7 @@
   .content.active {
     display: block;
   }
-  .tab.active {
-    background-color: #ddd;
-  }
+ 
 
     footer {
     background-color: #333;
@@ -100,18 +101,16 @@
 <script>
   function showTab(tabIndex) {
     const contents = document.querySelectorAll('.content');
+    const tabs = document.querySelectorAll('.tab');
+
     for (let i = 0; i < contents.length; i++) {
       contents[i].classList.remove('active');
+      tabs[i].classList.remove('active');
     }
+    
     contents[tabIndex].classList.add('active');
+    tabs[tabIndex].classList.add('active');
   }
-
-$(".tab").click(function(){
-  $(".tab").removeClass("active");
-  $(this).addClass("active");
-});
-
-  
 </script>
 
   
