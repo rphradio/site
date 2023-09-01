@@ -74,27 +74,13 @@
       <p><b>Channel 4 - Pop and Foreign</b></p>
 
   <script>
-        // Function to pause all audio elements within a specific iframe
-        function pauseAllAudiosInIframe(iframeElement) {
-            const iframeWindow = iframeElement.contentWindow;
-            if (iframeWindow && iframeWindow.pauseAllAudios) {
-                iframeWindow.pauseAllAudios();
-            }
-        }
-
-        // Add event listeners to all iframes with the "audio-frame" class
-        const audioFrames = document.querySelectorAll(".audio-frame");
-        audioFrames.forEach((iframe) => {
-            iframe.addEventListener("load", function () {
-                const iframeWindow = iframe.contentWindow;
-                if (iframeWindow && iframeWindow.initAudioControl) {
-                    iframeWindow.initAudioControl(function () {
-                        // Callback to pause all audios within this iframe
-                        pauseAllAudiosInIframe(iframe);
-                    });
-                }
-            });
-        });
+  var frames = window.frames;
+  for (var i = 0; i < frames.length; i++) { 
+  var sounds = frames[i].document.getElementsByTagName('audio');
+  for(j=0; j<sounds.length; j++){
+    sounds[j].pause();
+  }
+}
     </script>
       
     </div>
