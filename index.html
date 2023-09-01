@@ -103,6 +103,15 @@
     }
     contents[tabIndex].classList.add('active');
   }
+
+  $(function(){
+    $("audio").on("play", function() {
+        $("audio").not(this).each(function(index, audio) {
+            audio.pause();
+        });
+    });
+});
+  
 </script>
 </body>
 </html>
