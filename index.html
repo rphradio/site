@@ -44,7 +44,7 @@
     display: block;
   }
   .tab.active {
-    background-color: #daeada;
+    background-color: #ddd;
   }
 
     footer {
@@ -106,7 +106,7 @@
     contents[tabIndex].classList.add('active');
   }
 
-$(".tabs").click(function(){
+$(".tab").click(function(){
   $(".tab").removeClass("active");
   $(this).addClass("active");
 });
